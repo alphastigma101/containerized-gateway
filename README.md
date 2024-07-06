@@ -1,7 +1,6 @@
 ## Table of Contents
 
 1. [Introduction](#problem-statement)
-2. [Goals](#project-goals)
 3. [System Requirements](#system-requirements)
 3. [Install Docker (Linux)](#linux-install)
     - [Running Our Product In Linux](#linux-environment)
