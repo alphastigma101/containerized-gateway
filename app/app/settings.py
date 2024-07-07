@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from dotenv import load_dotenv
-from os import getenv
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,7 +56,9 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+             os.path.join(BASE_DIR, 'app/templates'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,9 +84,9 @@ load_dotenv()
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": getenv('POSTGRES_DATABASE'),
-        "USER": getenv('POSTGRES_USERNAME'),
-        "PASSWORD": getenv('POSTGRES_PASSWORD'),
+        "NAME": os.getenv('POSTGRES_DATABASE'),
+        "USER": os.getenv('POSTGRES_USERNAME'),
+        "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
