@@ -40,11 +40,13 @@ fi
 POSTGRES_USERNAME=$username
 POSTGRES_PASSWORD=$password
 POSTGRES_DATABASE=$database
-echo "CREATE DATABASE $POSTGRES_DATABASE;" > make_user.txt
-echo "CREATE USER $POSTGRES_USERNAME WITH ENCRYPTED PASSWORD '$POSTGRES_PASSWORD'" >> make_user.txt
-sudo chmod og+rX /home/$(whoami)
-sudo -u postgres psql --file="make_user.txt"
-rm make_user.txt
+#echo "CREATE DATABASE $POSTGRES_DATABASE;" > make_user.txt
+#echo "CREATE USER $POSTGRES_USERNAME WITH ENCRYPTED PASSWORD '$POSTGRES_PASSWORD'" >> make_user.txt
+#sudo chmod og+rX /home/$(whoami)
+#sudo -u postgres psql --file="make_user.txt"
+sudo -u postgres psql --command="CREATE DATABASE $POSTGRES_DATABASE;"
+sudo -u postgres psql --command="CREATE USER $POSTGRES_USERNAME WITH ENCRYPTED PASSWORD '$POSTGRES_PASSWORD';"
+#rm make_user.txt
 echo POSTGRES_USERNAME=$POSTGRES_USERNAME >> .env
 echo POSTGRES_PASSWORD=$POSTGRES_PASSWORD >> .env
 echo POSTGRES_DATABASE=$POSTGRES_DATABASE >> .env
