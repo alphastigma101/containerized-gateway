@@ -6,11 +6,13 @@ package main
 // operations -> Oath -> Logging -> Terminal
 // Name of the class here should be called Main
 import (
-	"fmt"
-	"io/ioutil"
-	"net/http" // Same thing as the request library in python
-	"os"
-	"routing/routing"
+	//"io/ioutil"
+	//"net/http" // Same thing as the request library in python
+	//"os"
+	"github.com/alphastigma101/containerized-gateway/tree/routing/routing"
+	"github.com/alphastigma101/containerized-gateway/tree/routing/logging"
+	"github.com/alphastigma101/containerized-gateway/tree/routing/oath"
+	"github.com/alphastigma101/containerized-gateway/tree/routing/terminal"
 	//"github.com/gofiber/template/django/v3"
 )
 
@@ -21,9 +23,13 @@ func prompt() {
 
 }
 func main() {
-	routing.Terminal.launchTerminal()
-	routing.Logging.initLogger()
-	routing.OAth.isAuthenticated()
+	routing.Update() // Call in the Update function
+	terminal.LaunchTerminal()
+	logging.InitLogger()
+	oath.IsAuthenticated()
+
+	//routing.Logging.initLogger()
+	//routing.OAth.isAuthenticated()
 	//root := "http://your-django-app-api-endpoint-url/data"
 
 	//req, err := http.NewRequest("GET", root, nil)

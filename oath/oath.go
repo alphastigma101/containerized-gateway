@@ -4,17 +4,12 @@ import (
 	"fmt"
 )
 
-type Oath interface {
-	isAuthenticated() bool
-	checkCredentials() bool
-}
-
-func isAuthenticated() {
+func IsAuthenticated() bool {
 	fmt.Println("Caled isAuthenticated!")
 	return false
 }
 
-func checkCredentials() {
+func CheckCredentials() bool {
 	fmt.Println("Called checkCredentials")
 	return false
 }

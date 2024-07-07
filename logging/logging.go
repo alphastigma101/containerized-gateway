@@ -1,11 +1,12 @@
 package logging
 
 import (
-	"log"
+	//"log"
 	"fmt"
 )
+
 // Logging initialization
-func initLogger() {
+func InitLogger() {
 	 fmt.Println("Logger Function as been called!")
 	
 }

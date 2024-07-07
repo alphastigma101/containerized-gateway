@@ -1,14 +1,11 @@
 package terminal
 import (
 	"fmt"
-	"os/exec" // Required for launching terminal
+	//"os/exec" // Required for launching terminal
 
 )
-type Terminal interface {
-	launchTerminal()
-}
 
-func launchTerminal() {
+func LaunchTerminal() {
 	 fmt.Println("Called launchTerminal")
 	// Example: Launching a new terminal session (platform-specific)
 	//var cmd *exec.Cmd
