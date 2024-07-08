@@ -1,8 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from app.db import Create, register
+
+register.tag("create", Create)
 
 def home(request):
-    return render(request, "home.html")
+    create = {
+        'database': Create(request),
+    }
+    return render(request, "home.html", create)
 
 def login(request):
     return render(request, "login.html")

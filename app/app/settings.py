@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os 
+from django.db.backends.postgresql.psycopg_any import IsolationLevel
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,14 +84,19 @@ WSGI_APPLICATION = 'app.wsgi.application'
 load_dotenv()
 
 DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv('POSTGRES_DATABASE'),
-        "USER": os.getenv('POSTGRES_USERNAME'),
-        "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
+        'default': {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv('POSTGRES_DATABASE'),
+            "USER": os.getenv('POSTGRES_USERNAME'),
+            "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
+            "HOST": "127.0.0.1",
+            "PORT": "5432",
+            "AUTOCOMMIT": False, # Data won't be automatically commited to the database, and now relies on the transaction api. 
+
+        },
+        "OPTIONS": {
+            "isolation_level": IsolationLevel.SERIALIZABLE, # Allows the database to be serialized and converted into a .json file
+    },
 }
 
 

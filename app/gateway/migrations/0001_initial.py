@@ -20,12 +20,21 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Logging',
+            name='Report',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('issue', models.CharField(max_length=30)),
                 ('date', models.CharField(max_length=8)),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gateway.user')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='System',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('issue', models.CharField(max_length=30)),
+                ('date', models.CharField(max_length=8)),
+                ('close', models.CharField(max_length=8)), # This should be a week ahead when of the crash which should prevent outdated issues being left in the table
             ],
         ),
     ]

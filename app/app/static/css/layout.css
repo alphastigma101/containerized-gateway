@@ -40,12 +40,6 @@
 /* End of configuring the navbar */
 
 /* Start of configuring About us page */
-.body {
-    font-family: Arial, sans-serif;            
-    line-height: 1.6;
-    margin: 20px;
-    padding: 0;
-}
 .container {
     max-width: 800px;            
     margin: auto;
