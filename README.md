@@ -1,18 +1,18 @@
 ## Table of Contents
 
 1. [Introduction](#problem-statement)
-3. [System Requirements](#system-requirements)
-3. [Install Docker (Linux)](#linux-install)
+2. [System Requirements](#system-requirements)
+3. [Running Our Product (Without Docker)](#how-to-run)
+4. [Install Docker (Linux)](#linux-install)
     - [Running Our Product In Linux](#linux-environment)
-4. [Install Docker (Windows)](#windows-install)
+5. [Install Docker (Windows)](#windows-install)
     - [Running Our Product In Windows](#windows-environment)
-5. [Install Docker (MacOs)](#macos-install)
+6. [Install Docker (MacOs)](#macos-install)
     - [Running Our Product in MacOs](#macos-environment)
-6. [Running Our Product Without Docker](#how-to-run)
-9. [Troubleshooting](#troubleshooting)
+7. [Troubleshooting](#troubleshooting)
     - [Common Issues](#common-issues)
     - [Logs and Diagnostic Data](#logs-and-diagnostic-data)
-10. [Additional Resources](#additional-resources)
+8. [Additional Resources](#additional-resources)
 
 
 
