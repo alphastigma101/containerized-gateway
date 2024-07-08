@@ -22,5 +22,8 @@ def about_us(request):
 def bug_report(request):
     return render(request, 'bug_report.html')
 
+def upload_data(request):
+    return render(request, 'upload_data.html')
+
 
 

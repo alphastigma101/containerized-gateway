@@ -9,4 +9,5 @@ urlpatterns = [
     path("query_data", views.query_data, name="query_data"),
     path("bug_report", views.bug_report, name="bug_report"),
     path("about_us", views.about_us, name="about_us"),
+    path("upload_data", views.upload_data, name="upload_data"),
 ]
