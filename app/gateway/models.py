@@ -13,9 +13,9 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
-class Logging(models.Model):
+class Report(models.Model):
     '''
-        Represents a logging entry associated with a user.
+        Represents a bug report entry associated with the user.
     '''
     issue = models.CharField(max_length=30)
     date = models.CharField(max_length=8)  # Must be in valid date format
@@ -23,3 +23,11 @@ class Logging(models.Model):
 
     def __str__(self):
         return f'{self.issue} - {self.user.username}'
+
+class System(models.Model):
+    '''
+        Represents a System logging entries.
+    '''
+    issue = models.CharField(max_length=30)
+    date = models.CharField(max_length=8)  # Must be in valid date format
+
