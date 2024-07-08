@@ -1,0 +1,38 @@
+/* layout.css */
+
+/* Styles for the navbar */
+.navbar {
+    background-color: lightgreen;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Align items horizontally */
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: lightgreen; /* Set background color for links */
+    margin: 0 10px; /* Add spacing between links */
+    border-radius: 4px; /* Optional: add rounded corners */
+}
+
+.navbar li a:hover {
+    background-color: #111; /* Change background color on hover */
+}
+
+.content {
+    padding: 20px;
+    margin-top: 20px; /* Add margin to push content below navbar */
+}
