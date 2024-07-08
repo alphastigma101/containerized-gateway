@@ -31,3 +31,5 @@ class System(models.Model):
     issue = models.CharField(max_length=30)
     date = models.CharField(max_length=8)  # Must be in valid date format
 
+
+
