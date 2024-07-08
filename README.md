@@ -49,7 +49,7 @@ Many organizations collect data that can be useful to researchers and data scien
 ### How to run
 1. Clone the branch    
 ```
-$ git clone -b django_initialization --single-branch git@github.com:alphastigma101/containerized-gateway.git
+$ git clone git@github.com:alphastigma101/containerized-gateway.git
 ```
 2. Navigate into the cloned repo      
 ```
