@@ -19,4 +19,6 @@ def main():
 
 
 if __name__ == '__main__':
+    # TODO:
+        # This is where the database should be created if it does not exists otherwise initialize it 
     main()
