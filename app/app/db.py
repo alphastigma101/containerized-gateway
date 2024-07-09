@@ -84,6 +84,15 @@ def Query(request):
     '''
         This function is embeded into the query_data.html and will return the requested query from the database if the transaction is successful
         Otherwise, report the error
+        Here is a section where you can query your database:
+             - https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#django.shortcuts.render
+            https://docs.djangoproject.com/en/5.0/topics/db/transactions/
+             - https://docs.djangoproject.com/en/5.0/topics/db/transactions/#django.db.transaction.atomic
+            https://docs.djangoproject.com/en/5.0/topics/db/models/
+             - https://docs.djangoproject.com/en/5.0/ref/models/fields/#django.db.models.JSONField
+            https://docs.djangoproject.com/en/5.0/ref/databases/
+            https://docs.djangoproject.com/en/5.0/howto/custom-template-tags/#howto-writing-custom-template-tags
+        There is a way to query the database table entities it was in the user manual and their example was using a class called Fruit 
     '''
     create_parent()
     try:
