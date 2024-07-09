@@ -12,7 +12,7 @@ For more information:
     - PostgreSQL Serialization: https://www.postgresql.org/docs/current/transaction-iso.html
 """
 import datetime
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError, DatabaseError, transaction, connection
 from django import template
 from gateway.models import Data, Report, System
 
@@ -99,15 +99,32 @@ def Create(request):
     '''
         This function is embeded into nothing. It will be called inside manage.py. It will crash if a database already exists 
     '''
-    breakpoint()
-    # Need to check and see if the user has a existing database 
-    # If not, call in Data which will be a entity inside the database table 
-    #create_parent()
-    #try:
-       # with transaction.atomic():
-            #generate_relationships()
-    #except IntegrityError:
-        #handle_exception()
+    try:
+        # Ensure the Data table exists
+        from django.core.management import call_command
+        # Run migrations to ensure the database schema is up to date
+        call_command('makemigrations')            
+        call_command('migrate')
+        # Check if the Data table exists
+        table_exists = 'data' in connection.introspection.table_names()
+        if not table_exists:
+            with connection.schema_editor() as schema_editor:
+                schema_editor.create_model(Data)
+            # Otherwise, create a couple of entities for it
+            Data.objects.create(name='Entry 1')
+            Data.objects.create(name='Entry 2')
+            Data.objects.create(name='Entry 3')
+            Data.objects.create(name='Entry 4')
+            print("Finished creating Database Table")
+            return
+        else:
+            print("Database already exists!")
+            return
+    except DatabaseError as e:
+        # Handle any potential database errors
+        # TODO: 
+                # Either implement some logging here or just return nothing
+        print(e)
 
-    #add_children()
+
 

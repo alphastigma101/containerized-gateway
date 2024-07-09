@@ -88,14 +88,20 @@ class System(models.Model):
         '''
         db_table = "system"
 
+def default_data():
+    return {"Data": "Type"}
 
 class Data(models.Model):
     '''
         Represents a Generic Database Table. Meant to be used if the user does not have a database
 
         Fields:
-            None
+            name: A generic field that can be changed 
     '''
+    name = models.JSONField("Entry", default=default_data)
+    def __str__(self):
+        return self.name
+
     class Meta:
         '''
         Defines metadata options for the Data model.

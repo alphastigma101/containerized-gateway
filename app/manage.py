@@ -36,8 +36,4 @@ if __name__ == '__main__':
         # https://docs.djangoproject.com/en/5.0/ref/databases/#manually-specifying-values-of-auto-incrementing-primary-keys
 
     #User.objects.create(username="alice", pk=1)
-
-  
-    # TODO:
-        # This is where the database should be created if it does not exists otherwise initialize it 
     main()
