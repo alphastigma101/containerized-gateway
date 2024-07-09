@@ -21,19 +21,7 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-"""
-This script launches the application and ensures necessary databases are created if they do not exist.
 
-Before launching the application, this script checks for the existence of required databases. If they
-are not found, it creates them. Otherwise, it proceeds to launch the application normally.
-
-For more information on database configuration in Django, refer to:
-https://docs.djangoproject.com/en/5.0/ref/databases/
-"""
+# This is the driver function 
 if __name__ == '__main__':
-    # Things I want to probably use:
-        # https://docs.djangoproject.com/en/5.0/ref/databases/#server-side-cursors
-        # https://docs.djangoproject.com/en/5.0/ref/databases/#manually-specifying-values-of-auto-incrementing-primary-keys
-
-    #User.objects.create(username="alice", pk=1)
     main()

@@ -1,6 +1,7 @@
 ## Table of Contents
 
 1. [Introduction](#problem-statement)
+2. [Why Use Our Product](#why-use-our-product)
 2. [System Requirements](#system-requirements)
 3. [Running Our Product (Without Docker)](#how-to-run)
 4. [Install Docker (Linux)](#linux-install)
@@ -30,7 +31,9 @@ Many organizations collect data that can be useful to researchers and data scien
 
 - **D**)    Containerize the application with Docker to allow for easy deployment by the organization with the help of Kubernetes for deployment.
 
-
+#### Why Use Our Product
+* Our product provides stability and transfers data securely over the internet for free unlike most products 
+* It is easy to use and is easy to navigate and if there is a bug, you can report bugs! 
 #### System Requirements
 
 * **RAM**: At least 4GB of RAM.
