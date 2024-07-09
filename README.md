@@ -68,7 +68,7 @@ $ pip install -r requirements.txt
 ```
 5. Initialize the PostgreSQL database and a new user     
 ```
-$ bash initialize.sh -u <new_username> -p <new_password> -d <new_database_name>
+$ bash intialize.sh -u <new_username> -p <new_password> -d <new_database_name>
 ```
 6. Enter the project directory     
 ```

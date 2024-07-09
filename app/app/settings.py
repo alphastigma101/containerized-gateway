@@ -81,16 +81,19 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/databases/#postgresql-connection-settings
 load_dotenv()
 
+
+
 DATABASES = {
     'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv('POSTGRES_DATABASE'),
-        "USER": os.getenv('POSTGRES_USERNAME'),
-        "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': 'db',  # Use the service name defined in docker-compose.yml
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
