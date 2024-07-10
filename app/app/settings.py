@@ -91,6 +91,7 @@ DATABASES = {
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
         'HOST': 'db',  # Use the service name defined in docker-compose.yml
         'PORT': '5432',
+        "AUTOCOMMIT": False, # Data won't be automatically commited to the database, and now relies on the transaction api.
     }
 }
 
