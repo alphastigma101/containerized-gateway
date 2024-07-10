@@ -5,10 +5,10 @@ from app.db import Create, register
 register.tag("create", Create)
 
 def home(request):
-    create = {
-        'database': Create(request),
-    }
-    return render(request, "home.html", create)
+    #create = {
+        #'database': Create(request),
+    #}
+    return render(request, "home.html")
 
 def update_data(request):
     return render(request, "update_data.html")
