@@ -12,7 +12,7 @@ services:
 
   web:
     build: .
-      #command: /usr/src/app/initialize.sh
+      #command: ./initialize.sh
     volumes:
       - .:/usr/src/app
     ports:
