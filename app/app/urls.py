@@ -1,23 +1,14 @@
-"""
-URL configuration for app project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import include, path
-from gateway import views  # Import views module from current directory
-urlpatterns = [
-        path('', views.home, name='home'),
+from django.views.generic import TemplateView
 
-] 
+
+urlpatterns = [
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', TemplateView.as_view(template_name='bug_report.html'), name='bug_report'),
+    path('', TemplateView.as_view(template_name='upload_data.html'), name='upload_data'), 
+    path('', TemplateView.as_view(template_name='about_us.html'), name='about_us'), 
+    path('gateway/', include('gateway.urls')), # You have user sites they can visit
+    path('admin/', admin.site.urls) # You have the admin sites that only admins can visit
+]
+
