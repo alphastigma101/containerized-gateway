@@ -1,0 +1,45 @@
+{% extends 'navbar.html' %}                                                                                                                                                                            
+{% block content %}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    </head>
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <div class="person">
+            {% load static %}
+            <img src="{% static 'Logan.jpeg' %}">
+            <div>
+                <h2>Logan Welty</h2>
+                <p><strong>Role:</strong>Project Manager/Developer/Ux Designer</p>
+                <p>Logan Welty is responsible for overseeing the project's progress and ensuring deadlines are met. He coordinates with team members and stakeholders to deliver high-quality results.</p>
+            </div>
+        </div>
+
+        <div class="person">
+            {% load static %}
+            <img src="{% static 'Nole.jpeg' %}">
+            <div>
+                <h2>Nole Stites</h2>
+                <p><strong>Role:</strong> Lead Developer</p>
+                <p>Nole Stites leads the development team, writing code, reviewing pull requests, and implementing new features. She has a passion for creating efficient and scalable solutions.</p>
+            </div>
+        </div>
+
+        <div class="person">
+            {% load static %}
+            <img src="{% static 'Yellow.jpg' %}">
+            <div>
+                <h2>Yellow HighLighter</h2>
+                <p><strong>Role:</strong>Database Specialist</p>
+                <p>Yellow Highlighter focuses on user experience, creating wireframes, prototypes, and conducting usability testing. He strives to make the project user-friendly and visually appealing. Also lives at Walmart</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

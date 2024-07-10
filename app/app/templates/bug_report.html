@@ -1,0 +1,26 @@
+{% extends 'navbar.html' %}                                                                                                                                                                            
+{% block content %}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Bug</title>
+</head>
+<body>
+    <h2>Report a Bug</h2>
+    <form action="send_bug_report.php" method="post">
+        <label for="bug_summary">Bug Summary:</label><br>
+        <input type="text" id="bug_summary" name="bug_summary" required><br><br>
+        
+        <label for="bug_details">Bug Details:</label><br>
+        <textarea id="bug_details" name="bug_details" rows="4" cols="50" required></textarea><br><br>
+        
+        <label for="reporter_email">Your Email:</label><br>
+        <input type="email" id="reporter_email" name="reporter_email" required><br><br>
+        
+        <input type="submit" value="Submit Bug Report">
+    </form>
+</body>
+</html>
+{% endblock %}

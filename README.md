@@ -1,18 +1,19 @@
 ## Table of Contents
 
 1. [Introduction](#problem-statement)
-3. [System Requirements](#system-requirements)
-3. [Install Docker (Linux)](#linux-install)
+2. [Why Use Our Product](#why-use-our-product)
+2. [System Requirements](#system-requirements)
+3. [Running Our Product (Without Docker)](#how-to-run)
+4. [Install Docker (Linux)](#linux-install)
     - [Running Our Product In Linux](#linux-environment)
-4. [Install Docker (Windows)](#windows-install)
+5. [Install Docker (Windows)](#windows-install)
     - [Running Our Product In Windows](#windows-environment)
-5. [Install Docker (MacOs)](#macos-install)
+6. [Install Docker (MacOs)](#macos-install)
     - [Running Our Product in MacOs](#macos-environment)
-6. [Running Our Product Without Docker](#how-to-run)
-9. [Troubleshooting](#troubleshooting)
+7. [Troubleshooting](#troubleshooting)
     - [Common Issues](#common-issues)
     - [Logs and Diagnostic Data](#logs-and-diagnostic-data)
-10. [Additional Resources](#additional-resources)
+8. [Additional Resources](#additional-resources)
 
 
 
@@ -30,7 +31,9 @@ Many organizations collect data that can be useful to researchers and data scien
 
 - **D**)    Containerize the application with Docker to allow for easy deployment by the organization with the help of Kubernetes for deployment.
 
-
+#### Why Use Our Product
+* Our product provides stability and transfers data securely over the internet for free unlike most products 
+* It is easy to use and is easy to navigate and if there is a bug, you can report bugs! 
 #### System Requirements
 
 * **RAM**: At least 4GB of RAM.
@@ -49,7 +52,7 @@ Many organizations collect data that can be useful to researchers and data scien
 ### How to run
 1. Clone the branch    
 ```
-$ git clone -b django_initialization --single-branch git@github.com:alphastigma101/containerized-gateway.git
+$ git clone git@github.com:alphastigma101/containerized-gateway.git
 ```
 2. Navigate into the cloned repo      
 ```

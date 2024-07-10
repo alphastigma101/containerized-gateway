@@ -36,3 +36,36 @@
     padding: 20px;
     margin-top: 20px; /* Add margin to push content below navbar */
 }
+
+/* End of configuring the navbar */
+
+/* Start of configuring About us page */
+.container {
+    max-width: 800px;            
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.person {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+.person img {
+    float: left;
+    margin-right: 20px;
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+.person h2 {
+    margin-top: 0;
+    color: #333;
+}
+.person p {
+    text-align: justify;
+}
+

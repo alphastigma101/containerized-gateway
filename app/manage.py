@@ -2,6 +2,10 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+# TODO:
+# Worry about implementing this later.. July 8th, 2024
+#from psycopg import connect, ClientCursor # Binds cursor on front end which allows to query the data from the client to the server side: https://www.psycopg.org/psycopg3/docs/advanced/cursors.html#client-side-binding-cursors
+
 
 
 def main():
@@ -18,5 +22,6 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+# This is the driver function 
 if __name__ == '__main__':
     main()

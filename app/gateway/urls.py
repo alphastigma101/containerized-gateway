@@ -1,10 +1,11 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import include, path
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
-    path("home", views.home, name="home"),
-    path("login", views.login, name="login"),
-    path("update_data", views.update_data, name="update_data"),
-    path("delete_data", views.delete_data, name="delete_data"),
-    path("query_data", views.query_data, name="query_data")
+    path('', TemplateView.as_view(template_name='home.html'), name='home'), 
+    path('gateway/', include('gateway.urls')),
+    path('admin/', admin.site.urls),
+
 ]

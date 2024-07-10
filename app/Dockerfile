@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y netcat-openbsd postgresql-client
 # Copy the application
 COPY . .
 
-# Expose the port
+# Expose the port (if needed)
 EXPOSE 8000
 
-# Command to run the application
+# Corrected CMD instruction to run Django server
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os 
+from django.db.backends.postgresql.psycopg_any import IsolationLevel
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gateway',
 ]
 
 MIDDLEWARE = [
@@ -92,7 +94,7 @@ DATABASES = {
         'HOST': 'db',  # Use the service name defined in docker-compose.yml
         'PORT': '5432',
         "AUTOCOMMIT": False, # Data won't be automatically commited to the database, and now relies on the transaction api.
-    }
+    },
 }
 
 
@@ -134,6 +136,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "app/static/css",
+    BASE_DIR / "app/static/crew",
 ]
 
 # Default primary key field type
