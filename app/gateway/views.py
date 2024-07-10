@@ -10,9 +10,6 @@ def home(request):
     }
     return render(request, "home.html", create)
 
-def login(request):
-    return render(request, "login.html")
-
 def update_data(request):
     return render(request, "update_data.html")
 

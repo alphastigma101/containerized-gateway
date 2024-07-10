@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from gateway import views  # Import views module from current directory
 urlpatterns = [
-    path('gateway/', include("gateway.urls")),
-    path('admin/', admin.site.urls),
+        path('', views.home, name='home'),
+
 ] 
