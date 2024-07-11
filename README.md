@@ -116,6 +116,7 @@ sudo apt-get update
 docker compose up -d --build
 
 ```
+* Then in your browser, paste this into it: ``` http://localhost:8000/ ```
 * To stop it: 
 ```
 docker compose down --volumes
