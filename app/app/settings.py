@@ -88,11 +88,11 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
+        'NAME': os.getenv('POSTGRES_DATABASE'),
+        'USER': os.getenv('POSTGRES_USERNAME'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        #'HOST': 'db',  # Use the service name defined in docker-compose.yml
-        'HOST': '127.0.0.1',
+        'HOST': 'db',  # Use the service name defined in docker-compose.yml
+        #'HOST': '127.0.0.1',
         'PORT': '5432',
         "AUTOCOMMIT": False, # Data won't be automatically commited to the database, and now relies on the transaction api.
     }
