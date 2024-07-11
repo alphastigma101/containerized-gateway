@@ -1,19 +1,27 @@
 ## Table of Contents
 
 1. [Introduction](#problem-statement)
+
 2. [Why Use Our Product](#why-use-our-product)
+
 2. [System Requirements](#system-requirements)
-3. [Running Our Product (Without Docker)](#how-to-run)
-4. [Install Docker (Linux)](#linux-install)
-    - [Running Our Product In Linux](#linux-environment)
+
+3. [Running Our Product (Without Docker)](#running-our-product-without-docker)
+
+4. [Running Our Product (With Docker)](#running-our-product-with-docker)
+    - [Install Docker (Linux)](#linux-install)
+    - [Running Our Product (Linux)](#linux-environment)
 5. [Install Docker (Windows)](#windows-install)
-    - [Running Our Product In Windows](#windows-environment)
+    - [Running Our Product (Windows)](#windows-environment)
 6. [Install Docker (MacOs)](#macos-install)
-    - [Running Our Product in MacOs](#macos-environment)
+    - [Running Our Product (MacOs)](#macos-environment)
+
 7. [Troubleshooting](#troubleshooting)
     - [Common Issues](#common-issues)
     - [Logs and Diagnostic Data](#logs-and-diagnostic-data)
 8. [Additional Resources](#additional-resources)
+    -  [Docker Sources](#docker-sources)
+
 
 
 
@@ -34,6 +42,7 @@ Many organizations collect data that can be useful to researchers and data scien
 #### Why Use Our Product
 * Our product provides stability and transfers data securely over the internet for free unlike most products 
 * It is easy to use and is easy to navigate and if there is a bug, you can report bugs! 
+
 #### System Requirements
 
 * **RAM**: At least 4GB of RAM.
@@ -41,15 +50,7 @@ Many organizations collect data that can be useful to researchers and data scien
 * **Storage**: At least 20GB of free disk space to accommodate images, containers, and volumes.
 * **Operating System**: Windows 10 or macOS 10.14 and any Linux distributions that support docker
 
-#### Linux-Install
-* To offically use our product you need to install docker on your system. If you're a **linux user**, you can use these commands to install docker:
-```
- sudo apt-get install docker-cli 
-```
-#### Windows-Install
-* If you are a Windows user, you can simply follow this doc: *https://docs.docker.com/desktop/install/windows-install/*
-
-### How to run
+### Running Our Product Without Docker
 1. Clone the branch    
 ```
 $ git clone git@github.com:alphastigma101/containerized-gateway.git
@@ -82,3 +83,35 @@ $ cd app
 $ python3 manage.py runserver
 ```
 8. View the webpage at [http://127.0.0.1:8000/gateway/home](http://127.0.0.1:8000/gateway/home)  
+
+
+#### Running Our Product With Docker
+* **FMI**
+
+#### Linux-Install
+* To offically use our product you need to install docker on your system. If you're a **linux user**, you can use these commands to install docker:
+```
+ sudo apt-get install docker-cli 
+```
+#### Windows-Install
+* If you are a Windows user, you can simply follow this doc: *https://docs.docker.com/desktop/install/windows-install/*
+
+
+
+#### MacOs-Install
+* **FMI**
+
+#### Additinal Resources
+* **FMI**
+
+#### Docker Sources
+
+* *https://docs.docker.com/guides/docker-concepts/running-containers/publishing-ports/*
+* *https://docs.docker.com/guides/getting-started/build-and-push-first-image/*
+* *https://docs.docker.com/reference/dockerfile/*
+* *https://docs.docker.com/build/guide/intro/*
+* *https://docs.docker.com/compose/intro/features-uses/*
+* *https://docs.docker.com/engine/swarm/*
+* *https://docs.docker.com/build/guide/multi-stage/*
+
+

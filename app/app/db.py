@@ -13,24 +13,8 @@ For more information:
 """
 import datetime
 from django.db import IntegrityError, DatabaseError, transaction, connection
-from django import template
 from gateway.models import Data, Report, System
 
-
-"""
-    Alternatives to avoid using the Jinja2 template engine as the backend for calling a function inside an HTML file.
-
-    Options:
-    1. Convert the function into a dictionary format and invoke it directly within the template engine.
-    2. Implement custom template tags while abstracting the logic to avoid creating additional folder structures. Utilize decorators directly on the function.
-
-    To remove custom template tags:
-        - Remove the template library import and associated decorators.
-
-    For further details, refer to the Django documentation on custom template tags:
-        - https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/
-"""
-register = template.Library()
 
 
 @transaction.atomic(using=None, savepoint=True, durable=True)
@@ -104,7 +88,7 @@ def Query(request):
     add_children()
 
 @transaction.atomic(using=None, savepoint=True, durable=True)
-def Create(request):
+def Create():
     '''
         This function is embeded into nothing. It will be called inside manage.py. It will crash if a database already exists 
     '''
@@ -134,6 +118,4 @@ def Create(request):
         # TODO: 
                 # Either implement some logging here or just return nothing
         print(e)
-
-
 

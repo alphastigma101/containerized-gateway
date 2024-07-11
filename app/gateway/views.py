@@ -1,13 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from app.db import Create, register
+from app.poll_extras import Tags
 
-register.tag("create", Create)
 
 def home(request):
-    #create = {
-        #'database': Create(request),
-    #}
+    Tags.create_data
     return render(request, "home.html")
 
 def update_data(request):
