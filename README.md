@@ -91,8 +91,44 @@ $ python3 manage.py runserver
 #### Linux-Install
 * To offically use our product you need to install docker on your system. If you're a **linux user**, you can use these commands to install docker:
 ```
- sudo apt-get install docker-cli 
+ sudo apt-get update 
+ sudo apt-get install docker-cli  docker-compose-plugin 
 ```
+* If ubuntu can't find docker-compose-plugin then you need to copy this code below and paste it into your terminal:
+
+```
+
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+* To start the container:
+```
+docker compose up -d --build
+
+```
+* To stop it: 
+```
+docker compose down --volumes
+
+```
+
+* To debug it:
+```
+docker compose up -build
+```
+* **Note For Debugging**: **you must use CTL+C to exit out**
+
+
 #### Windows-Install
 * If you are a Windows user, you can simply follow this doc: *https://docs.docker.com/desktop/install/windows-install/*
 
