@@ -57,7 +57,6 @@ class Filters:
 
 # Register your template tag methods
 
-register.simple_tag(Tags.create_data, name="create_data")
 #register.simple_tag(Tags.query_date, name="query_data")
 #register.simple_tag(Tags.update_data, name="update_data")
 #register.simple_tag(Tags.delete_data, name="delete_data")
