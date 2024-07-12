@@ -1,0 +1,25 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Data</title>
+</head>
+<body>
+    <h1>Update Data Page</h1>
+    <!-- Form for updating data -->
+    <form action="update_handler.php" method="post">
+        <label for="data">Data to Update:</label>
+        <input type="text" id="data" name="data" required><br><br>
+        
+        <!-- Additional fields for updating data -->
+        
+        <button type="submit">Update Data</button>
+    </form>
+</body>
+</html>
+{% endblock %}
+

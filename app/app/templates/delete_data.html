@@ -1,0 +1,24 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Data</title>
+</head>
+<body>
+    <h1>Delete Data Page</h1>
+    <!-- Form for deleting data -->
+    <form action="delete_handler.php" method="post">
+        <label for="data">Data to Delete:</label>
+        <input type="text" id="data" name="data" required><br><br>
+        
+        <!-- Additional fields for confirming deletion -->
+        
+        <button type="submit">Delete Data</button>
+    </form>
+</body>
+</html>
+{% endblock %}
+
