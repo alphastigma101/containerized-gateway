@@ -68,7 +68,7 @@ $ source env/bin/activate
 ```
 4. Install the requirements     
 ```
-$ pip install -r requirements.txt
+$ pip install -r app/requirements.txt
 ```
 5. Initialize the PostgreSQL database and a new user     
 ```
