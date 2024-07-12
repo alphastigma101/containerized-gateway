@@ -35,15 +35,20 @@ if [ -z "$username" ] || [ -z "$password" ] || [ -z "$database" ]; then
 fi
 
 # Make the database and credentials
-POSTGRES_USERNAME=$username
+POSTGRES_USER=$username
 POSTGRES_PASSWORD=$password
-POSTGRES_DATABASE=$database
-sudo -u postgres psql --command="CREATE DATABASE $POSTGRES_DATABASE;"
-sudo -u postgres psql --command="CREATE USER $POSTGRES_USERNAME WITH ENCRYPTED PASSWORD '$POSTGRES_PASSWORD';"
-sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USERNAME SET client_encoding TO 'utf8';"
-sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USERNAME SET default_transaction_isolation TO 'read committed';"
-sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USERNAME SET timezone TO 'UTC';"
-sudo -u postgres psql --command="GRANT ALL PRIVILEGES ON DATABASE $POSTGRES_DATABASE TO $POSTGRES_USERNAME;"
-echo POSTGRES_USERNAME=$POSTGRES_USERNAME >> .env
+POSTGRES_DB=$database
+
+export POSTGRES_USER
+export POSTGRES_PASSWORD
+export POSTGRES_DB
+
+sudo -u postgres psql --command="CREATE DATABASE $POSTGRES_DB;"
+sudo -u postgres psql --command="CREATE USER $POSTGRES_USER WITH ENCRYPTED PASSWORD '$POSTGRES_PASSWORD';"
+sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USER SET client_encoding TO 'utf8';"
+sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USER SET default_transaction_isolation TO 'read committed';"
+sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USER SET timezone TO 'UTC';"
+sudo -u postgres psql --command="GRANT ALL PRIVILEGES ON DATABASE $POSTGRES_DB TO $POSTGRES_USER;"
+echo POSTGRES_USER=$POSTGRES_USER > .env
 echo POSTGRES_PASSWORD=$POSTGRES_PASSWORD >> .env
-echo POSTGRES_DATABASE=$POSTGRES_DATABASE >> .env
+echo POSTGRES_DB=$POSTGRES_DB >> .env

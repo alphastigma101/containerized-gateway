@@ -50,7 +50,7 @@ Many organizations collect data that can be useful to researchers and data scien
 * **Storage**: At least 20GB of free disk space to accommodate images, containers, and volumes.
 * **Operating System**: Windows 10 or macOS 10.14 and any Linux distributions that support docker
 
-### Running Our Product Without Docker
+### General Setup Instructions
 1. Clone the branch    
 ```
 $ git clone git@github.com:alphastigma101/containerized-gateway.git
@@ -72,21 +72,33 @@ $ pip install -r requirements.txt
 ```
 5. Initialize the PostgreSQL database and a new user     
 ```
-$ bash intialize.sh -u <new_username> -p <new_password> -d <new_database_name>
+$ source intialize.sh -u <new_username> -p <new_password> -d <new_database_name>
 ```
 6. Enter the project directory     
 ```
 $ cd app
 ```
-7. Start the Django server     
+
+#### Running The App Without Docker
+1. Follow the "General Setup Instructions" above
+2. Start the Django server     
 ```
 $ python3 manage.py runserver
 ```
-8. View the webpage at [http://127.0.0.1:8000/gateway/home](http://127.0.0.1:8000/gateway/home)  
+3. View the webpage at [http://127.0.0.1:8000/gateway/home](http://127.0.0.1:8000/gateway/home)  
 
-
-#### Running Our Product With Docker
-* **FMI**
+#### Running The App With Docker
+1. Follow the "General Setup Instructions" above
+2. Install Docker
+3. Start the web app and database containers
+```
+$ docker compose up -d --build
+```
+> OPTIONAL: test database connection by running `$ docker-compose exec web python3 manage.py migrate`     
+> Also, run PostgreSQL commands to interact with the database container with `$ docker-compose exec -it db psql -U <POSTGRES_USERNAME> -d <POSTGRES_DB_NAME> -c`
+4. View the webpage at [http://127.0.0.1:8000/gateway/home](http://127.0.0.1:8000/gateway/home)  
+> To stop the containers, run `$ docker compose down --volumes`     
+> To debug the app, run `docker compose up -build`
 
 #### Linux-Install
 * To offically use our product you need to install docker on your system. If you're a **linux user**, you can use these commands to install docker:
