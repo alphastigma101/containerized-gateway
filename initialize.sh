@@ -1,28 +1,54 @@
 #!/bin/bash
 
 # Initialize our own variables
-username="${POSTGRES_USER}"
-password="${POSTGRES_PASSWORD}"
-database="${POSTGRES_DB}"
+username=""
+password=""
+database=""
 
-# Wait for PostgreSQL to be ready
-echo "Waiting for PostgreSQL to be ready..."
-while ! nc -z db 5432; do
-  sleep 1
+# Parse the command line options
+while getopts ":u:p:d:" opt; do
+  case ${opt} in
+    u)
+      username="$OPTARG"
+      ;;
+    p)
+      password="$OPTARG"
+      ;;
+    d)
+      database="$OPTARG"
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
 done
-echo "PostgreSQL is ready!"
+
+# Check if flags are set
+if [ -z "$username" ] || [ -z "$password" ] || [ -z "$database" ]; then
+    echo "All flags -u (username), -p (password), and -d (database) must be set."
+    exit 1
+fi
 
 # Make the database and credentials
-export PGPASSWORD=$password
-psql -U $username -h db -c "CREATE DATABASE $database;"
-psql -U $username -h db -c "CREATE USER $username WITH ENCRYPTED PASSWORD '$password';"
-psql -U $username -h db -c "GRANT ALL PRIVILEGES ON DATABASE $database TO $username;"
+POSTGRES_USER=$username
+POSTGRES_PASSWORD=$password
+POSTGRES_DB=$database
 
-# Navigate to the app directory
-cd app
+export POSTGRES_USER
+export POSTGRES_PASSWORD
+export POSTGRES_DB
 
-# Migrate the database
-python manage.py migrate
-
-# Start the Django server
-python manage.py runserver 0.0.0.0:8000
+sudo -u postgres psql --command="CREATE DATABASE $POSTGRES_DB;"
+sudo -u postgres psql --command="CREATE USER $POSTGRES_USER WITH ENCRYPTED PASSWORD '$POSTGRES_PASSWORD';"
+sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USER SET client_encoding TO 'utf8';"
+sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USER SET default_transaction_isolation TO 'read committed';"
+sudo -u postgres psql --command="ALTER ROLE $POSTGRES_USER SET timezone TO 'UTC';"
+sudo -u postgres psql --command="GRANT ALL PRIVILEGES ON DATABASE $POSTGRES_DB TO $POSTGRES_USER;"
+echo POSTGRES_USER=$POSTGRES_USER > .env
+echo POSTGRES_PASSWORD=$POSTGRES_PASSWORD >> .env
+echo POSTGRES_DB=$POSTGRES_DB >> .env
