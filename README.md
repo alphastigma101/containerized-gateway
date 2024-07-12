@@ -94,10 +94,10 @@ $ python3 manage.py runserver
 ```
 $ docker compose up -d --build
 ```
-> OPTIONAL: test database connection by running `$ docker-compose exec web python3 manage.py migrate`
-> Also, run PostgreSQL commands to interact with the database container with `$docker-compose exec -it db psql -U <POSTGRES_USERNAME> -d <POSTGRES_DB_NAME> -c`
+> OPTIONAL: test database connection by running `$ docker-compose exec web python3 manage.py migrate`     
+> Also, run PostgreSQL commands to interact with the database container with `$ docker-compose exec -it db psql -U <POSTGRES_USERNAME> -d <POSTGRES_DB_NAME> -c`
 4. View the webpage at [http://127.0.0.1:8000/gateway/home](http://127.0.0.1:8000/gateway/home)  
-> To stop the containers, run `$ docker compose down --volumes`
+> To stop the containers, run `$ docker compose down --volumes`     
 > To debug the app, run `docker compose up -build`
 
 #### Linux-Install
