@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gateway',
+    'gateway.user_data_models',
 ]
 
 MIDDLEWARE = [
@@ -91,8 +92,8 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        #'HOST': 'db',  # Use the service name defined in docker-compose.yml
-        'HOST': '127.0.0.1',
+        'HOST': 'db',  # Use the service name defined in docker-compose.yml
+        #'HOST': '127.0.0.1',
         'PORT': '5432',
         "AUTOCOMMIT": False, # Data won't be automatically commited to the database, and now relies on the transaction api.
     }
