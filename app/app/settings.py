@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gateway',
-    'gateway.user_data_models',
 ]
 
 MIDDLEWARE = [
