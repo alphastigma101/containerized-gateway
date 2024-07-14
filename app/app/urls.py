@@ -3,7 +3,7 @@ from django.urls import include, path
 
 
 urlpatterns = [
-    path('gateway/', include('gateway.urls')), # You have user sites they can visit
+    path('', include('gateway.urls')), # You have user sites they can visit
     path('admin/', admin.site.urls) # You have the admin sites that only admins can visit
 ]
 
