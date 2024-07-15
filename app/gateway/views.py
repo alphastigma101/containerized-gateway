@@ -7,6 +7,9 @@ from django.db import connection
 import os
 import django
 
+from .forms import CreateTableForm
+from .database_helper_functions import create_table_helper
+
 def home(request):
     Tags.create_data
     return render(request, "home.html")
@@ -29,6 +32,7 @@ def bug_report(request):
 def upload_data(request):
     return render(request, 'upload_data.html')
 
+
 def tester(request):
     if request.method == "POST":
         # Get all table names
@@ -42,5 +46,24 @@ def tester(request):
         return render(request, 'tester.html', {'response':'You found me, Neo.', 'tables':table_names, 'models':model_names})
     return render(request, 'tester.html')
 
+
 def create_table(request):
-    return render(request, 'create_table.html')
+    empty_form = CreateTableForm()
+    
+    # When the user hits the "submit" button
+    if request.method == 'POST':
+        form = CreateTableForm(request.POST)
+        if form.is_valid():
+            form_data = form.cleaned_data # Submitted-form contents
+            name = form_data['name']
+            desc = form_data['description']
+
+            # Create the table
+            formatted_name = create_table_helper(name, desc)
+            
+            return render(request, 'create_table.html', {'form': empty_form, 'message': f'Successfully created a new table: {formatted_name}'})
+        else:
+            return render(request, 'create_table.html', {'form': empty_form, 'message':""})
+
+    # Render the default create table page
+    return render(request, 'create_table.html', {'form': empty_form, 'message':""})

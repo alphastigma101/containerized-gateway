@@ -114,3 +114,20 @@ class Data(models.Model):
         '''
         db_table = "data"
 
+
+class Organic_Food(models.Model):
+    '''
+    This table will contain a record for every organic food offered by the company.
+    '''
+    issue = models.CharField(max_length=30)
+    date = models.CharField(max_length=8)  # Must be in valid date format
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+class Circus_Game(models.Model):
+    '''
+    A record for every circus game at the circus.
+    '''
+    issue = models.CharField(max_length=30)
+    date = models.CharField(max_length=8)  # Must be in valid date format
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    

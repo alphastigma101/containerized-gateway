@@ -1,5 +1,16 @@
 
-def create_table(table_name, table_description):
+# For files writes, you must first navigate into the 'gateway' directory.
+
+
+def create_table_helper(table_name, table_description):
+    '''
+    This function will create a new Django Model in models.py and migrate the new changes.
+    Returns the formatted name of the model created.
+
+    params:
+    table_name  -> the name of the model to make
+    table_description   -> a description of the contents of the table
+    '''
     # Format the table name
     name = table_name.lower().title().replace(' ', '_')
 
@@ -30,8 +41,10 @@ class {name}(models.Model):
     """
 
     # Add the new model to models.py
-    with open("models.py", 'a') as f:
+    with open("gateway/models.py", 'a') as f:
         f.write(template)
 
+    # Return the formatted name of the model
+    return name
 
-create_table("User rePorts", "So funny story, I already typed all of this code a couple of days ago, but I mistakenly deleted the entire repo thinking that it was a backup. Fun fact: it was not. So anyways, I am just going to keep typing this absolute garbage of a text chunk in order to fill up space in the void that the galazy has conquered from the very beginning of all of time despite the fact that rice had nothing to do with it. Anyways, what have you done today? I know that I, personally, have studied enough Japanese to last a lifetime. And CUT.")
+

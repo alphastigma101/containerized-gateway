@@ -1,0 +1,12 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+<form action="/create_table" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+<h2>{{ message }}</h2>
+
+{% endblock %}
