@@ -113,3 +113,4 @@ class Data(models.Model):
                 https://docs.djangoproject.com/en/5.0/ref/models/options/#table-names
         '''
         db_table = "data"
+

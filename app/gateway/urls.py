@@ -26,5 +26,6 @@ urlpatterns = [
     path("bug_report", views.bug_report, name="bug_report"),
     path("about_us", views.about_us, name="about_us"),
     path("tester", views.tester, name="tester"),
+    path("create_table", views.create_table, name="create_table"),
 ] 
 

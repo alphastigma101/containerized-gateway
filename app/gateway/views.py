@@ -42,4 +42,5 @@ def tester(request):
         return render(request, 'tester.html', {'response':'You found me, Neo.', 'tables':table_names, 'models':model_names})
     return render(request, 'tester.html')
 
-
+def create_table(request):
+    return render(request, 'create_table.html')
