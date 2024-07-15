@@ -46,7 +46,7 @@ def view_tables(request):
 
         return render(request, 'view_tables.html', {'response':'Custom Tables', 'models':user_models})
 
-    return render(request, 'view_tables.html')
+    return render(request, 'view_tables.html', {})
 
 
 def create_table(request):

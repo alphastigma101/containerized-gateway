@@ -1,3 +1,5 @@
+# This file contains all of the helper functions for interacting with
+# the PostgreSQL database
 
 # For files writes, you must first navigate into the 'gateway' directory.
 
