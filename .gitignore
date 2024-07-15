@@ -166,3 +166,4 @@ cython_debug/
 
 # Nole's useless (but helpful to him) files
 tree.sh
+startup.sh

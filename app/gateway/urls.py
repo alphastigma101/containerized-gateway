@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from gateway import views  # Import views module from current directory
+
 urlpatterns = [
     path("home", views.home, name="home"),
     path("update_data", views.update_data, name="update_data"),
@@ -24,6 +25,8 @@ urlpatterns = [
     path("delete_data", views.delete_data, name="delete_data"),
     path("query_data", views.query_data, name="query_data"),
     path("bug_report", views.bug_report, name="bug_report"),
-    path("about_us", views.about_us, name="about_us")
+    path("about_us", views.about_us, name="about_us"),
+    path("view_tables", views.view_tables, name="view_tables"),
+    path("create_table", views.create_table, name="create_table"),
 ] 
 

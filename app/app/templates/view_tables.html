@@ -1,0 +1,16 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<h1>View Tables</h1>
+<form action="/view_tables" method="POST">
+    {% csrf_token %}
+    <button type="submit">View Tables</button>
+</form>
+<hr>
+
+<h2>{{ response }}</h2>
+<ul>
+{% for model_name in models %}
+<li><h4>{{ model_name }}</h4></li>
+{% endfor %}
+</ul>
+{% endblock %}
