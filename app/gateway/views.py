@@ -33,18 +33,20 @@ def upload_data(request):
     return render(request, 'upload_data.html')
 
 
-def tester(request):
+def view_tables(request):
     if request.method == "POST":
-        # Get all table names
-        table_names = connection.introspection.table_names()
-
-        # Get all model names
+        # Fetch all model names and omit Django-made ones
         model_names = [m._meta.db_table for c in apps.get_app_configs() for m in c.get_models()]
+        django_models = ['django_admin_log', 'auth_permission', 'auth_group', 'auth_user', 'django_content_type', 'django_session']
+        
+        user_models = []
+        for name1 in model_names:
+            if name1 not in django_models:
+                user_models.append(name1)
 
-        print("Table names: ", table_names)
-        print("Model names: ", model_names)
-        return render(request, 'tester.html', {'response':'You found me, Neo.', 'tables':table_names, 'models':model_names})
-    return render(request, 'tester.html')
+        return render(request, 'view_tables.html', {'response':'Custom Tables', 'models':user_models})
+
+    return render(request, 'view_tables.html')
 
 
 def create_table(request):
