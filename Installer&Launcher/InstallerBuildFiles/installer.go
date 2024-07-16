@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
@@ -171,4 +172,8 @@ func main() {
 	}
 
 	fmt.Println("Installation completed successfully.")
+
+	// Wait for user input before exiting
+	fmt.Println("Press Enter to exit...")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
 }
