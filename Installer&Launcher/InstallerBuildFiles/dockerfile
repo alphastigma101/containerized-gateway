@@ -1,0 +1,45 @@
+# Use a multi-stage build for cross-compilation
+FROM golang:latest as base
+
+# Install necessary tools for cross-compilation
+RUN apt-get update && apt-get install -y \
+    gcc-mingw-w64-x86-64 \
+    gcc-mingw-w64-i686 \
+    gcc-aarch64-linux-gnu \
+    gcc-arm-linux-gnueabihf
+
+# Set Go proxy
+ENV GOPROXY=https://proxy.golang.org
+
+# Set up the project directory
+WORKDIR /app
+
+# Copy go.mod and go.sum files
+COPY go.mod go.sum ./
+
+# Download all dependencies (leverage Docker cache)
+RUN go mod download
+
+# Copy the rest of the project files
+COPY . .
+
+# Build for Windows (64-bit)
+FROM base as windows
+RUN CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC=x86_64-w64-mingw32-gcc go build -v -o installer-windows-amd64.exe .
+
+# Build for macOS (64-bit)
+FROM base as macos
+RUN CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 go build -v -o installer-darwin-amd64 .
+
+# Build for Linux (64-bit)
+FROM base as linux
+RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -v -o installer-linux-amd64 .
+
+# Create a final minimal image to store the binaries
+FROM scratch as final
+COPY --from=windows /app/installer-windows-amd64.exe /installer-windows-amd64.exe
+COPY --from=macos /app/installer-darwin-amd64 /installer-darwin-amd64
+COPY --from=linux /app/installer-linux-amd64 /installer-linux-amd64
+
+# Dummy command to keep the container alive
+CMD ["echo", "This is a dummy command to keep the container alive for extraction."]
